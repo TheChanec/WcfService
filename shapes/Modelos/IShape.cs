@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace shapes.Shapes
 {
-    public class Resultado
+    public interface IShape : IColor
     {
-        public String Nombre { get; set; }
-        public Double Area { get; set; }
-        public String Color { get; set; }
+        double Altura { get; set; }
+        double Base { get; set; }
+
+        double Area { get; }
+
+
     }
 }

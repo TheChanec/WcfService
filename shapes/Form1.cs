@@ -13,13 +13,13 @@ namespace shapes
 {
     public partial class Form1 : Form
     {
-        public List<object> figuras;
+        public List<IShape> figuras;
 
 
         public Form1()
         {
             InitializeComponent();
-            figuras = new List<object>();
+            figuras = new List<IShape>();
 
             LlenarCombo(cbColorTriangulo);
             LlenarCombo(cbColorCirculo);
@@ -59,17 +59,8 @@ namespace shapes
 
         public void Acomodo()
         {
-            List<Resultado> res = new List<Resultado>();
-
-            foreach (var item in figuras)
-            {
-                var type = item.GetType();
-                dynamic figura = item;
-                res.Add(new Resultado { Nombre = type.Name, Area = figura.Area, Color = figura.Nombre });
-
-            }
-
-            dataGridView1.DataSource = res.OrderBy(x => x.Area).ThenBy(x => x.Color).ToList();
+            
+            dataGridView1.DataSource = figuras.OrderBy(x => x.Area).ThenBy(x => x.Color).ToList();
         }
 
         private void btnAgregarRectangulo_Click(object sender, EventArgs e)
@@ -79,14 +70,14 @@ namespace shapes
                 
             }
             else {
-                Double altura = Convert.ToDouble(tbAlturaRectangulo.Text);
+                double altura = Convert.ToDouble(tbAlturaRectangulo.Text);
                 tbAlturaRectangulo.Text = "0";
                 Double baseRectangulo = Convert.ToDouble(tbBaseRectangulo.Text);
                 tbBaseRectangulo.Text = "0";
                 String nombreColor = cbColorRectangulo.SelectedItem.ToString();
                 cbColorRectangulo.SelectedItem = null;
 
-                figuras.Add(new Rectangulo { Altura = altura, Base = baseRectangulo, Nombre = nombreColor });
+                figuras.Add(new Rectangulo { Altura = altura, Base = baseRectangulo, Color = nombreColor });
                 Acomodo();
             }
 
@@ -111,7 +102,7 @@ namespace shapes
                 cbColorCirculo.SelectedItem = null;
 
 
-                figuras.Add(new Circle { Radio = radio, Nombre = nombreColor });
+                figuras.Add(new Circle { Radio = radio, Color = nombreColor });
                 Acomodo();
             }
 
@@ -134,7 +125,7 @@ namespace shapes
                 String nombreColor = cbColorCuadrado.SelectedItem.ToString();
                 cbColorCuadrado.SelectedItem = null;
 
-                figuras.Add(new Cuadrado { Lado = altura, Nombre = nombreColor });
+                figuras.Add(new Cuadrado { Altura = altura , Base= altura , Color = nombreColor });
                 Acomodo();
             }
 
@@ -156,7 +147,7 @@ namespace shapes
                 tbBaseTriangulo.Text = "0";
                 String nombreColor = cbColorTriangulo.SelectedItem.ToString();
                 cbColorTriangulo.SelectedText = null;
-                figuras.Add(new Triangulo { Altura = altura, Base = baseTriangulo, Nombre = nombreColor });
+                figuras.Add(new Triangulo { Altura = altura, Base = baseTriangulo, Color = nombreColor });
                 Acomodo();
             }
 

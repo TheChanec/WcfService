@@ -53,12 +53,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shapes\Circle.cs" />
-    <Compile Include="Shapes\Color.cs" />
-    <Compile Include="Shapes\Cuadrado.cs" />
-    <Compile Include="Shapes\Rectangulo.cs" />
-    <Compile Include="Shapes\Resultado.cs" />
-    <Compile Include="Shapes\Triangulo.cs" />
+    <Compile Include="Modelos\Circle.cs" />
+    <Compile Include="Modelos\Cuadrado.cs" />
+    <Compile Include="Modelos\IColor.cs" />
+    <Compile Include="Modelos\Rectangulo.cs" />
+    <Compile Include="Modelos\IShape.cs" />
+    <Compile Include="Modelos\Triangulo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

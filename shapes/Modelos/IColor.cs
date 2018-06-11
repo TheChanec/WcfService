@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace shapes.Shapes
 {
-    public class Color
+    public interface IColor
     {
-        public String Nombre { get; set; }
+        string Color { get; set; }
     }
 }
