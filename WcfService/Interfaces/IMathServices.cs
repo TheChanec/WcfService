@@ -1,20 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
-namespace WcfService
+namespace WcfService.Interfaces
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IMathServices" in both code and config file together.
     [ServiceContract]
-    public interface IService1
+    public interface IMathServices
     {
 
         [OperationContract]
-        string GetData(int value);
+        int GetSuma(int value1, int value2);
+
+        [OperationContract]
+        int GetResta(int value1, int value2);
+
+
+
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
